@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      input {
+        background-color: rgb(113, 245, 135);
+        text-align: right;
+        width: 100px;
+        height: 80px;
+        margin-bottom: 40px;
+        font: 0.9em Arial;
+      }
+
+      div {
+        width: 700px;
+        margin: 0 auto;
+        font: 5em Arial;
+      }
+
+      button {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 0.5em;
+      }
+    </style>
+
+    <div>
+      <h2>Kvadrat Tenlik</h2>
+      <input type="number" placeholder="a" id="a" />x<sup>2</sup> +
+      <input type="number" placeholder="b" id="b" />x +
+      <input type="number" placeholder="c" id="c" />
+      <button onclick="hesabla()">=</button>
+      <p>
+        Diskriminalt:
+        <span id="cavab"></span>
+      </p>
+      <p>
+        x1:
+        <span id="kok1"></span>
+      </p>
+      <p>
+        x2:
+        <span id="kok2"></span>
+      </p>
+    </div>
+
+    <script>
+      let a = document.getElementById("a");
+      let b = document.getElementById("b");
+      let c = document.getElementById("c");
+      let cavab = document.getElementById("cavab");
+
+      function hesabla() {
+        cavab.innerHTML = (+b.value) ** 2 - 4 * a.value * c.value;
+        kok1.innerHTML =
+          (-b.value + Math.sqrt(cavab.innerHTML)) / (a.value * 2);
+        kok2.innerHTML =
+          (-b.value - Math.sqrt(cavab.innerHTML)) / (a.value * 2);
+      }
+    </script>
+  </body>
+</html>
